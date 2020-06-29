@@ -1,0 +1,59 @@
+Streams are wrappers arround a data source, allowing us to operate with that data source
+and making bulk processing c    onvinient and fast.
+
+A stream does not store data and, in that sense, is not a data structure.
+
+map
+map() produces a new stream after applying a function to each element of the original stream.
+The new stream could be of different type
+
+filter
+this produces a new stream that contains elements of the original stream that
+pass a given test (specified by a predicate)
+
+There are terminal operations like foreach().
+
+peek() vistazo
+Sometimes we need to perform multiple operations on each element of the
+stream before any terminal operation is applied.
+
+In that case, we can use peek(), it performs the specific operation on each element
+of the stream which can be used further. Peek() is an intermediate operation.
+
+In others words it is a logging for each step.
+
+Methods Types and Pipelines
+
+Lazy Evaluation
+All intermediate operations are lazy, so they’re not executed until a result of a processing is actually needed.
+
+Stream Specializations
+IntStream
+LongStream
+DoubleStream
+
+Those streams do not extend Stream but extend BaseStream on top of which Stream is also built.
+
+Reduce:
+T reduce(T identity, BinaryOperator<T> accumulator);
+identity = default or initial value.
+BinaryOperator = functional interface, take two values and produces a new value.
+
+joining
+Collectors.joining() will insert the delimiter between the two String elements of the stream.
+It internally uses a java.util.StringJoiner to perform the joining operation.
+
+toSet
+
+Collectors.set() will convert the stream to Set.
+
+toCollection
+We use Collectors.toCOllection() to extract the elements into another collection by passing in a supplier collection.
+
+SummarizingDouble
+which applies a double-producing mapping function to each input element and returns a special class
+
+
+
+
+
